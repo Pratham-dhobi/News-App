@@ -20,12 +20,32 @@ export class News extends Component {
     this.setState({articles: parseData.articles});
   }
 
-  handleNextBtn = () => {
-    console.log('previous btn clicked');
+  handleNextBtn = async () => {
+    console.log('next btn clicked');
+
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page+1}`;
+    let data = await fetch(url);
+    let parseData = await data.json();
+    console.log(parseData);
+
+    this.setState = {
+      page: this.state.page+1,
+      articles: parseData.articles
+    }
   }
 
-  handlePrevBtn = () => {
-    console.log('next btn clicked');
+  handlePrevBtn = async () => {
+    console.log('previous btn clicked');
+
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page - 1}`;
+    let data = await fetch(url);
+    let parseData = await data.json();
+    console.log(parseData);
+
+    this.setState = {
+      page: this.state.page - 1,
+      articles: parseData.articles
+    }
   }
 
   render() {
@@ -40,8 +60,8 @@ export class News extends Component {
         })}
         </div>
         <div className="container d-flex justify-content-between">
-        <button type="button" class="btn btn-primary" onClick={handlePrevBtn}>&larr; Previous</button>
-        <button type="button" class="btn btn-primary" onClick={handleNextBtn}>Next &rarr;</button>
+        <button type="button" className="btn btn-primary" disabled={this.state.page<=1} onClick={this.handlePrevBtn}>&larr; Previous</button>
+        <button type="button" className="btn btn-primary" onClick={this.handleNextBtn}>Next &rarr;</button>
         </div>
       </div>
     )

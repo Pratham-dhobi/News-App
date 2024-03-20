@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export class Navbar extends Component {
 
@@ -7,7 +8,7 @@ export class Navbar extends Component {
 
     return (
       <div>
-        <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
+        <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode} position-sticky`}>
             <a className="navbar-brand mx-3" href="/">India Tv</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -16,12 +17,18 @@ export class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                        <Link className="nav-link" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Link</a>
+                        <Link className="nav-link" to="/business">Business</Link>
                     </li>
-                    <li className="nav-item dropdown">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/sports">Sports</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/technology">Technology</Link>
+                    </li>
+                    {/* <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
                         </a>
@@ -31,19 +38,26 @@ export class Navbar extends Component {
                         <div className="dropdown-divider"></div>
                         <a className="dropdown-item" href="/">Something else here</a>
                         </div>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="/">Disabled</a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             {/* <form className="form-inline my-2 my-lg-0">     
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
             </form>
             <button className="btn btn-outline-success my-2 my-sm-0 mx-2" type="submit">Search</button> */}
-            <div className="form-check form-switch mx-3">
-                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleMode}/>
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Theme</label>
+            <div className="d-flex align-items-center justify-content-center">
+                <div className="mx-2">
+                    <select className="form-select" aria-label="Default select example">
+                        <option defaultValue='in'>India</option>
+                        <option value="us">USA</option>
+                        <option value="ru">Russia</option>
+                        <option value="au">Australia</option>
+                    </select>
+                </div>
+                <div className="form-check form-switch">
+                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleMode}/>
+                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Theme</label>
+                </div>
             </div>
         </nav>
       </div>

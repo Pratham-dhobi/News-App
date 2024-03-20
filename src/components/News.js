@@ -49,19 +49,22 @@ export class News extends Component {
   }
 
   render() {
+    let {mode} = this.props;
+    
     return (
       <div className='container my-3'>
-        <h1>India Tv - Top HeadLines</h1>
+        <h1 style={{fontFamily: '-moz-initial', fontWeight: 'bold'}}>India Tv - Top HeadLines</h1>
+
         <div className="row">
         {this.state.articles.map(element=> {
           return <div className="col-md-4" key={element.url}>
-          <NewsItem title={element.title?element.title.slice(0, 45) + '...':""} description={element.description?element.description.slice(0, 99)+ '...':""} img_url={element.urlToImage} news_url={element.url}/>
-        </div>
+              <NewsItem title={element.title?element.title.slice(0, 45) + '...':""} description={element.description?element.description.slice(0, 99)+ '...':""} img_url={element.urlToImage} news_url={element.url} mode={mode}/>
+            </div>
         })}
         </div>
         <div className="container d-flex justify-content-between">
-        <button type="button" className="btn btn-primary" disabled={this.state.page<=1} onClick={this.handlePrevBtn}>&larr; Previous</button>
-        <button type="button" className="btn btn-primary" onClick={this.handleNextBtn}>Next &rarr;</button>
+        <button type="button" className="btn btn-primary my-3" disabled={this.state.page<=1} onClick={this.handlePrevBtn}>&larr; Previous</button>
+        <button type="button" className="btn btn-primary my-3" onClick={this.handleNextBtn}>Next &rarr;</button>
         </div>
       </div>
     )

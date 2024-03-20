@@ -21,31 +21,27 @@ export class News extends Component {
   }
 
   handleNextBtn = async () => {
-    console.log('next btn clicked');
-
     let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page+1}`;
     let data = await fetch(url);
     let parseData = await data.json();
     console.log(parseData);
 
-    this.setState = {
+    this.setState({
       page: this.state.page+1,
       articles: parseData.articles
-    }
+    });
   }
 
   handlePrevBtn = async () => {
-    console.log('previous btn clicked');
-
     let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page - 1}`;
     let data = await fetch(url);
     let parseData = await data.json();
     console.log(parseData);
 
-    this.setState = {
+    this.setState({
       page: this.state.page - 1,
       articles: parseData.articles
-    }
+    });
   }
 
   render() {
@@ -53,7 +49,7 @@ export class News extends Component {
     
     return (
       <div className='container my-3'>
-        <h1 style={{fontFamily: '-moz-initial', fontWeight: 'bold'}}>India Tv - Top HeadLines</h1>
+        <h1 className='text-center' style={{fontFamily: '-moz-initial', fontWeight: 'bold'}}>India Tv - Top HeadLines</h1>
 
         <div className="row">
         {this.state.articles.map(element=> {

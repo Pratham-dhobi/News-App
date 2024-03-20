@@ -5,7 +5,7 @@ export class Alerts extends Component {
     let {alert} = this.props;
     return (
       <div>
-        {this.props.alert && <div className="alert alert-success">
+        {this.props.alert && <div className="alert alert-primary">
             <strong>{alert.st}</strong> : {alert.msg} 
         </div>}
       </div>

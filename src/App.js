@@ -3,14 +3,7 @@ import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
 import Alerts from './components/Alerts';
-import Business from './components/Business';
-import Sports from './components/Sports';
-import Technology from './components/Technology';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
+
 import HeadLine from './components/HeadLine';
 
 export default class App extends Component {
@@ -59,27 +52,10 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Router>
           <Navbar mode={this.state.mode} toggleMode={this.toggleMode}/>
           <HeadLine mode={this.state.mode}/>
           <Alerts alert={this.state.alert}/>
-
-          <Routes> 
-            <Route path='/' element={<News mode={this.state.mode}/>}/>
-          </Routes>
-
-          <Routes> 
-            <Route path='/business' element={<Business/>}/>
-          </Routes>
-
-          <Routes> 
-            <Route path='/sports' element={<Sports/>}/>
-          </Routes>
-
-          <Routes> 
-            <Route path='/technology' element={<Technology/>}/>
-          </Routes>
-        </Router>
+          <News mode={this.state.mode}/>
       </>
     )
   }

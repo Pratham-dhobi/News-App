@@ -12,7 +12,7 @@ export class NewsItem extends Component {
           <div className="card-body">
             <h5 className="card-title" style={{fontFamily: '-moz-initial', fontWeight: 'bold', fontSize: '20px'}}>{title}</h5>
             <p className="card-text" style={{fontFamily: '-moz-initial', fontsize: '16px', textAlign: 'justify'}}>{description}</p>
-            <a href={news_url} target='_self' className="btn btn-dark btn-sm">read more</a>
+            <a href={news_url} target='_blank' className="btn btn-dark btn-sm">read more</a>
           </div>
         </div>
       </div>

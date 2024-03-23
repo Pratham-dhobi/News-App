@@ -64,36 +64,33 @@ export default class App extends Component {
             <Alerts alert={this.state.alert}/>
 
             <Routes>
-              <Route path='/' element={<News mode={this.state.mode} pageSize={6} country='in' category='general'/>}/>
+              <Route exact path='/' element={<News key='general' mode={this.state.mode} pageSize={6} country='in' category='general'/>}/>
             </Routes>
             
             <Routes>
-              <Route path='/entertainment' element={<News mode={this.state.mode} pageSize={6} country='in' category='entertainment'/>}/>
+              <Route exact path='/entertainment' element={<News key='entertainment' mode={this.state.mode} pageSize={6} country='in' category='entertainment'/>}/>
             </Routes>
             
             <Routes>
-              <Route path='/sports' element={<News mode={this.state.mode} pageSize={6} country='in' category='sports'/>}/>
+              <Route exact path='/sports' element={<News key='sports' mode={this.state.mode} pageSize={6} country='in' category='sports'/>}/>
             </Routes>
 
             <Routes>
-              <Route path='/business' element={<News mode={this.state.mode} pageSize={6} country='in' category='business'/>}/>
+              <Route exact path='/business' element={<News key='business' mode={this.state.mode} pageSize={6} country='in' category='business'/>}/>
             </Routes>
             
             <Routes>
-              <Route path='/technology' element={<News mode={this.state.mode} pageSize={6} country='in' category='technology'/>}/>
+              <Route exact path='/technology' element={<News key='technology' mode={this.state.mode} pageSize={6} country='in' category='technology'/>}/>
             </Routes>
             
             <Routes>
-              <Route path='/science' element={<News mode={this.state.mode} pageSize={6} country='in' category='science'/>}/>
+              <Route exact path='/science' element={<News key='science' mode={this.state.mode} pageSize={6} country='in' category='science'/>}/>
             </Routes>
             
             <Routes>
-              <Route path='/health' element={<News mode={this.state.mode} pageSize={6} country='in' category='health'/>}/>
+              <Route exact path='/health' element={<News key='health' mode={this.state.mode} pageSize={6} country='in' category='health'/>}/>
             </Routes>
 
-            {/* <Routes>
-              <Route path='/health' element={<News mode={this.state.mode} pageSize={6} country='in' category='health'/>}/>
-            </Routes> */}
           </Router>
           
       </>

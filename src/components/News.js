@@ -7,7 +7,7 @@ export class News extends Component {
   constructor() {
     super();
     this.state = {
-      articles : [],
+      articles: [],
       loading: true,
       page: 1,
       totalResults: 0
@@ -71,12 +71,12 @@ export class News extends Component {
     
     return (
       <div className='container my-3'>
-        <h1 className='text-center' style={{fontFamily: '-moz-initial', fontWeight: 'bold'}}>India Tv - Top HeadLines</h1>
+        <h1 className='text-center' style={{fontFamily: 'Roboto', fontWeight: 'bold'}}>India Tv - Top HeadLines</h1>
         {this.state.loading && <Spinner mode={mode}/>}
         <div className="row">
         {!this.state.loading && this.state.articles.map(element=> {
           return <div className="col-md-4" key={element.url}>
-              <NewsItem title={element.title?element.title.slice(0, 45) + '...':""} description={element.description?element.description.slice(0, 99)+ '...':""} img_url={element.urlToImage} news_url={element.url} mode={mode}/>
+              <NewsItem title={element.title?element.title.slice(0, 45) + '...':""} description={element.description?element.description.slice(0, 99)+ '...':""} img_url={element.urlToImage} news_url={element.url} mode={mode} author={element.author} publishedAt={element.publishedAt}/>
             </div>
         })}
         </div>

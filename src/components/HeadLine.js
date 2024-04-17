@@ -4,9 +4,9 @@ export class HeadLine extends Component {
     myStyleLight= {
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         padding: '0px',
-        height: '40px'
+        height: '40px',
       }
       myStyleDark= {
         display: 'flex',
@@ -18,8 +18,8 @@ export class HeadLine extends Component {
       }
       headingStyle = {
         width: '15%',
-        color: 'white',
-        backgroundColor: 'red',
+        color: 'black',
+        backgroundColor: 'white',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -27,16 +27,18 @@ export class HeadLine extends Component {
       marqueeStyleLight = {
         width: '85%',
         fontSize: '18px',
-        color: 'white',
+        color: 'black',
         padding: '0px',
-        height: '40px'
+        height: '40px',
+        fontFamily: 'Roboto'
       }
       marqueeStyleDark = {
         width: '85%',
         fontSize: '18px',
         color: 'white',
         padding: '0px',
-        height: '40px'
+        height: '40px',
+        fontFamily: 'Roboto'
       }
   render() {
     let {mode} = this.props;
@@ -45,7 +47,7 @@ export class HeadLine extends Component {
       <>
         <div className="news-container position-sticky top-0 z-1" style={mode==='light'?this.myStyleLight:this.myStyleDark}>
           <div className="heading" style={this.headingStyle}>
-            <span><p className='h4' style={{fontFamily: '-moz-initial', fontWeight: 'bolder'}}>Breaking News</p></span>
+            <span><p className='h5' style={{fontFamily: 'Roboto', fontWeight: 'bolder'}}>Breaking News</p></span>
           </div>
           <div className="news" style={mode==='light'?this.marqueeStyleLight:this.marqueeStyleDark}>
           <marquee width="100%" direction="left" height="20px" className='my-1'>

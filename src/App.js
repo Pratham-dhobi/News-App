@@ -47,7 +47,7 @@ export default class App extends Component {
       this.setState({
         mode: 'light' 
       });
-      document.body.style.backgroundColor = 'white';
+      document.body.style.backgroundColor = '#e8e8fc';
       document.body.style.color = 'black';
       this.showAlert('success', 'light theme enabled.');
     }
@@ -58,8 +58,8 @@ export default class App extends Component {
       <>      
         <Router>
           <header className='position-sticky z-1 top-0'>
-            <HeadLine mode={this.state.mode}/>
             <Navbar mode={this.state.mode} toggleMode={this.toggleMode}/>
+            <HeadLine mode={this.state.mode}/>
           </header>
             <Alerts alert={this.state.alert}/>
 

@@ -53,7 +53,7 @@ export default class App extends Component {
       this.showAlert('success', 'light theme enabled.');
     }
   } 
-  
+  pageSize = 6;
   render() {
     return (
       <>      
@@ -65,31 +65,31 @@ export default class App extends Component {
             <Alerts alert={this.state.alert}/>
 
             <Routes>
-              <Route exact path='/' element={<News key='general' mode={this.state.mode} pageSize={6} country='in' category='general'/>}/>
+              <Route exact path='/' element={<News key='general' mode={this.state.mode} pageSize={this.pageSize} country='in' category='general'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/entertainment' element={<News key='entertainment' mode={this.state.mode} pageSize={6} country='in' category='entertainment'/>}/>
+              <Route exact path='/entertainment' element={<News key='entertainment' mode={this.state.mode} pageSize={this.pageSize} country='in' category='entertainment'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/sports' element={<News key='sports' mode={this.state.mode} pageSize={6} country='in' category='sports'/>}/>
+              <Route exact path='/sports' element={<News key='sports' mode={this.state.mode} pageSize={this.pageSize} country='in' category='sports'/>}/>
             </Routes>
 
             <Routes>
-              <Route exact path='/business' element={<News key='business' mode={this.state.mode} pageSize={6} country='in' category='business'/>}/>
+              <Route exact path='/business' element={<News key='business' mode={this.state.mode} pageSize={this.pageSize} country='in' category='business'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/technology' element={<News key='technology' mode={this.state.mode} pageSize={6} country='in' category='technology'/>}/>
+              <Route exact path='/technology' element={<News key='technology' mode={this.state.mode} pageSize={this.pageSize} country='in' category='technology'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/science' element={<News key='science' mode={this.state.mode} pageSize={6} country='in' category='science'/>}/>
+              <Route exact path='/science' element={<News key='science' mode={this.state.mode} pageSize={this.pageSize} country='in' category='science'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/health' element={<News key='health' mode={this.state.mode} pageSize={6} country='in' category='health'/>}/>
+              <Route exact path='/health' element={<News key='health' mode={this.state.mode} pageSize={this.pageSize} country='in' category='health'/>}/>
             </Routes>
 
           </Router>

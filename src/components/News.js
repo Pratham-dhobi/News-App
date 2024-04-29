@@ -25,52 +25,44 @@ export class News extends Component {
   }
 
   async updateNews() {
+    this.props.setProgress(10);
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({
       loading: true,
     });
+    // this.props.setProgress(30);
     let data = await fetch(url);
+    // this.props.setProgress(60);
     let parseData = await data.json();
+    // this.props.setProgress(90);
     console.log(parseData);
     this.setState({
       articles: parseData.articles,
       totalResults: parseData.totalResults,
       loading: false,
     });
+    this.props.setProgress(100)
   }
+
   async componentDidMount() {
     this.updateNews();
   }
-
-  // handleNextBtn = async () => {
-  //   this.setState({
-  //     page: this.state.page + 1,
-  //   });
-  //   this.updateNews();
-  // };
-
-  // handlePrevBtn = async () => {
-  //   this.setState({
-  //     page: this.state.page - 1,
-  //   });
-  //   this.updateNews();
-  // };
   
   fetchMoreData = async() => {
     this.setState({
       page: this.state.page + 1
     });
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    this.setState({
-      loading: true,
-    });
+    // this.setState({
+    //   loading: true,
+    // });
     let data = await fetch(url);
     let parseData = await data.json();
     console.log(parseData);
     this.setState({
       articles: this.state.articles.concat(parseData.articles),
-      totalResults: parseData.totalResults,
-      loading: false,
+      totalResults: parseData.totalResults
+      // loading: false,
     });
   };
   render() {
@@ -88,7 +80,7 @@ export class News extends Component {
             : `${this.capitalizeFirstLetter(this.props.category)}`}{" "}
           HeadLines
         </h1>
-        {/* {this.state.loading && <Spinner mode={mode}/>} */}
+        {this.state.loading && <Spinner mode={mode}/>}
         <InfiniteScroll
           dataLength={this.state.articles.length}
           next={this.fetchMoreData}

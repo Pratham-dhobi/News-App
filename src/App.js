@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import News from './components/News';
 import Alerts from './components/Alerts';
 import HeadLine from './components/HeadLine';
+import LoadingBar from 'react-top-loading-bar';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,11 +13,19 @@ import {
 
 export default class App extends Component {
   
+  state = {
+    progress: 0
+  }
+  setProgress = (prg)=> {
+    this.setState({
+      progress: prg
+    });
+  }
   constructor(){
     super();
     this.state = {
       mode: 'light',
-      alert: null
+      alert: null,
     } 
   }
   
@@ -58,6 +67,15 @@ export default class App extends Component {
     return (
       <>      
         <Router>
+        <LoadingBar
+            color='#f11946'
+            progress={this.state.progress}
+            onLoaderFinished={()=>{
+              this.setProgress(0); 
+            }}
+            height={3}
+            transitionTime={2000}
+          />
           <header className='position-sticky top-0' style={{zIndex: '100'}}>
             <Navbar mode={this.state.mode} toggleMode={this.toggleMode}/>
             {/* <HeadLine mode={this.state.mode}/> */}
@@ -65,31 +83,31 @@ export default class App extends Component {
             <Alerts alert={this.state.alert}/>
 
             <Routes>
-              <Route exact path='/' element={<News key='general' mode={this.state.mode} pageSize={this.pageSize} country='in' category='general'/>}/>
+              <Route exact path='/' element={<News setProgress={this.setProgress} key='general' mode={this.state.mode} pageSize={this.pageSize} country='in' category='general'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/entertainment' element={<News key='entertainment' mode={this.state.mode} pageSize={this.pageSize} country='in' category='entertainment'/>}/>
+              <Route exact path='/entertainment' element={<News setProgress={this.setProgress} key='entertainment' mode={this.state.mode} pageSize={this.pageSize} country='in' category='entertainment'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/sports' element={<News key='sports' mode={this.state.mode} pageSize={this.pageSize} country='in' category='sports'/>}/>
+              <Route exact path='/sports' element={<News setProgress={this.setProgress} key='sports' mode={this.state.mode} pageSize={this.pageSize} country='in' category='sports'/>}/>
             </Routes>
 
             <Routes>
-              <Route exact path='/business' element={<News key='business' mode={this.state.mode} pageSize={this.pageSize} country='in' category='business'/>}/>
+              <Route exact path='/business' element={<News setProgress={this.setProgress} key='business' mode={this.state.mode} pageSize={this.pageSize} country='in' category='business'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/technology' element={<News key='technology' mode={this.state.mode} pageSize={this.pageSize} country='in' category='technology'/>}/>
+              <Route exact path='/technology' element={<News setProgress={this.setProgress} key='technology' mode={this.state.mode} pageSize={this.pageSize} country='in' category='technology'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/science' element={<News key='science' mode={this.state.mode} pageSize={this.pageSize} country='in' category='science'/>}/>
+              <Route exact path='/science' element={<News setProgress={this.setProgress} key='science' mode={this.state.mode} pageSize={this.pageSize} country='in' category='science'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/health' element={<News key='health' mode={this.state.mode} pageSize={this.pageSize} country='in' category='health'/>}/>
+              <Route exact path='/health' element={<News setProgress={this.setProgress} key='health' mode={this.state.mode} pageSize={this.pageSize} country='in' category='health'/>}/>
             </Routes>
 
           </Router>

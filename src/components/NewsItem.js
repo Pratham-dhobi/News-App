@@ -9,11 +9,13 @@ export class NewsItem extends Component {
     return (
       <div className='my-3'>
         <div className={`card hover-shadow w-100 border-${mode==='dark'?'white':''}`} style={{background: 'transparent', color: mode==='light'?'black':'#dddbdb'}}>
-           {/*style={{backgroundColor: mode === 'light'?'white':'rgb(215 215 215)'}}*/} 
-        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{zIndex:'1', left: '50%'}}>
-          {source}
-          <span className="visually-hidden">unread messages</span>
-        </span>
+
+        <div style={{display: 'flex', justifyItems: 'end', position: 'absolute', right: 0}}>
+          <span className="badge rounded-pill bg-danger">
+            {source}
+            <span className="visually-hidden">unread messages</span>
+          </span>
+        </div>
           <img className="card-img-top" src={!img_url?'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8IKoEzXY_LtXgQxsdGFEyJ4aso8GOneH6dm0p7qpGzw&s':img_url} alt="" style={{height: '200px'}}/>
           <div className="card-body" style={{ lineHeight: '1.5'}}>
             <h5 className="card-title" style={{fontFamily: "Roboto", fontWeight: 'bold', fontSize: '20px', height: '45px'}}>{title}</h5>

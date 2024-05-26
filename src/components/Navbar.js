@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 export class Navbar extends Component {
 
@@ -37,30 +37,14 @@ export class Navbar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/health">Health</Link>
                     </li>
-                    {/* <li className="nav-item">
-                        <Link className="nav-link" to="/help">Help</Link>
-                    </li> */}
-                    {/* <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="/">Action</a>
-                        <a className="dropdown-item" href="/">Another action</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="/">Something else here</a>
-                        </div>
-                    </li> */}
                 </ul>
             </div>
-            {/* <form className="form-inline my-2 my-lg-0">     
-                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-            </form>
-            <button className="btn btn-outline-success my-2 my-sm-0 mx-2" type="submit">Search</button> */}
             <div className="d-flex align-items-center justify-content-center mx-4">
                 <div className="mx-2">
-                    <select className="form-select" aria-label="Default select example" style={{backgroundColor: 'transparent', color: mode==='light'?'white':'black', border: `solid 1px ${mode==='light'?'#ffffff80':'#0000006e'}`}}>
-                        <option defaultValue='in' style={{backgroundColor: 'white', color: 'black'}}>India</option>
+                    <select className="form-select" aria-label="Default select example" style={{backgroundColor: 'transparent', color: mode==='light'?'white':'black', border: `solid 1px ${mode==='light'?'#ffffff80':'#0000006e'}`}} onChange={(e)=>{
+                        this.props.onDropDownChange(e.target.value);
+                    }}>
+                        <option value='in' style={{backgroundColor: 'white', color: 'black'}}>India</option>
                         <option value="us" style={{backgroundColor: 'white', color: 'black'}}>USA</option>
                         <option value="ru" style={{backgroundColor: 'white', color: 'black'}}>Russia</option>
                         <option value="au" style={{backgroundColor: 'white', color: 'black'}}>Australia</option>

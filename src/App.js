@@ -25,9 +25,14 @@ export default class App extends Component {
     this.state = {
       mode: 'light',
       alert: null,
+      country: 'in'
     } 
   }
-  
+  handleOnDropDownChange = (value) => {
+    this.setState({
+      country: value
+    });
+  }
   showAlert = (st, msg) => {
     this.setState({
       alert: {
@@ -75,37 +80,37 @@ export default class App extends Component {
             height={3}
           />
           <header className='position-sticky top-0' style={{zIndex: '100'}}>
-            <Navbar mode={this.state.mode} toggleMode={this.toggleMode}/>
+            <Navbar mode={this.state.mode} toggleMode={this.toggleMode} onDropDownChange={this.handleOnDropDownChange}/>
             {/* <HeadLine mode={this.state.mode}/> */}
           </header>
             <Alerts alert={this.state.alert}/>
 
             <Routes>
-              <Route exact path='/' element={<News setProgress={this.setProgress} key='general' mode={this.state.mode} pageSize={this.pageSize} country='in' category='general'/>}/>
+              <Route exact path='/' element={<News setProgress={this.setProgress} key='general' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='general'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/entertainment' element={<News setProgress={this.setProgress} key='entertainment' mode={this.state.mode} pageSize={this.pageSize} country='in' category='entertainment'/>}/>
+              <Route exact path='/entertainment' element={<News setProgress={this.setProgress} key='entertainment' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='entertainment'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/sports' element={<News setProgress={this.setProgress} key='sports' mode={this.state.mode} pageSize={this.pageSize} country='in' category='sports'/>}/>
+              <Route exact path='/sports' element={<News setProgress={this.setProgress} key='sports' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='sports'/>}/>
             </Routes>
 
             <Routes>
-              <Route exact path='/business' element={<News setProgress={this.setProgress} key='business' mode={this.state.mode} pageSize={this.pageSize} country='in' category='business'/>}/>
+              <Route exact path='/business' element={<News setProgress={this.setProgress} key='business' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='business'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/technology' element={<News setProgress={this.setProgress} key='technology' mode={this.state.mode} pageSize={this.pageSize} country='in' category='technology'/>}/>
+              <Route exact path='/technology' element={<News setProgress={this.setProgress} key='technology' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='technology'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/science' element={<News setProgress={this.setProgress} key='science' mode={this.state.mode} pageSize={this.pageSize} country='in' category='science'/>}/>
+              <Route exact path='/science' element={<News setProgress={this.setProgress} key='science' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='science'/>}/>
             </Routes>
             
             <Routes>
-              <Route exact path='/health' element={<News setProgress={this.setProgress} key='health' mode={this.state.mode} pageSize={this.pageSize} country='in' category='health'/>}/>
+              <Route exact path='/health' element={<News setProgress={this.setProgress} key='health' mode={this.state.mode} pageSize={this.pageSize} country={this.state.country} category='health'/>}/>
             </Routes>
 
           </Router>

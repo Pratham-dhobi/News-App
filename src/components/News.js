@@ -30,11 +30,11 @@ export class News extends Component {
     this.setState({
       loading: true,
     });
-    // this.props.setProgress(30);
+    this.props.setProgress(30);
     let data = await fetch(url);
-    // this.props.setProgress(60);
+    this.props.setProgress(60);
     let parseData = await data.json();
-    // this.props.setProgress(90);
+    this.props.setProgress(90);
     console.log(parseData);
     this.setState({
       articles: parseData.articles,
@@ -53,16 +53,13 @@ export class News extends Component {
       page: this.state.page + 1
     });
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cf7fa7ad3b3145758626aa9d27e88968&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    // this.setState({
-    //   loading: true,
-    // });
+
     let data = await fetch(url);
     let parseData = await data.json();
     console.log(parseData);
     this.setState({
       articles: this.state.articles.concat(parseData.articles),
       totalResults: parseData.totalResults
-      // loading: false,
     });
   };
   render() {
@@ -115,26 +112,6 @@ export class News extends Component {
             </div>
           </div>
         </InfiniteScroll>
-        {/* <div className="container d-flex justify-content-between">
-          <button
-            type="button"
-            className="btn btn-primary my-3"
-            disabled={this.state.page <= 1}
-            onClick={this.handlePrevBtn}
-          >
-            &larr; Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary my-3"
-            onClick={this.handleNextBtn}
-            disabled={
-              this.state.page + 1 > Math.ceil(this.state.totalResults / 18)
-            }
-          >
-            Next &rarr;
-          </button>
-        </div> */}
       </div>
     );
   }

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
 import Alerts from './components/Alerts';
-import HeadLine from './components/HeadLine';
 import LoadingBar from 'react-top-loading-bar';
 import {
   BrowserRouter as Router,
@@ -74,7 +73,6 @@ export default class App extends Component {
               this.setProgress(0); 
             }}
             height={3}
-            transitionTime={2000}
           />
           <header className='position-sticky top-0' style={{zIndex: '100'}}>
             <Navbar mode={this.state.mode} toggleMode={this.toggleMode}/>

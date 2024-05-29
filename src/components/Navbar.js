@@ -3,6 +3,9 @@ import { Link} from 'react-router-dom';
 
 export class Navbar extends Component {
 
+    handleCountryChange = (e) => {
+        this.props.onDropDownChange(e.target.value);
+    }
   render() {
     let {mode, toggleMode} = this.props;
 
@@ -41,9 +44,7 @@ export class Navbar extends Component {
             </div>
             <div className="d-flex align-items-center justify-content-center mx-4">
                 <div className="mx-2">
-                    <select className="form-select" aria-label="Default select example" style={{backgroundColor: 'transparent', color: mode==='light'?'white':'black', border: `solid 1px ${mode==='light'?'#ffffff80':'#0000006e'}`}} onChange={(e)=>{
-                        this.props.onDropDownChange(e.target.value);
-                    }}>
+                    <select className="form-select" aria-label="Default select example" style={{backgroundColor: 'transparent', color: mode==='light'?'white':'black', border: `solid 1px ${mode==='light'?'#ffffff80':'#0000006e'}`}} onChange={this.handleCountryChange}>
                         <option value='in' style={{backgroundColor: 'white', color: 'black'}}>India</option>
                         <option value="us" style={{backgroundColor: 'white', color: 'black'}}>USA</option>
                         <option value="ru" style={{backgroundColor: 'white', color: 'black'}}>Russia</option>

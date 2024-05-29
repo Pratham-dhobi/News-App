@@ -26,7 +26,7 @@ export default class App extends Component {
       mode: 'light',
       alert: null,
       country: 'in'
-    } 
+    }
   }
   handleOnDropDownChange = (value) => {
     this.setState({

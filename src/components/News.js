@@ -41,13 +41,19 @@ export class News extends Component {
       totalResults: parseData.totalResults,
       loading: false,
     });
-    this.props.setProgress(100)
+    this.props.setProgress(100);
   }
 
   async componentDidMount() {
     this.updateNews();
   }
-  
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevProps.country !== this.props.country) {
+      this.updateNews();
+    }
+  }
+
   fetchMoreData = async() => {
     this.setState({
       page: this.state.page + 1

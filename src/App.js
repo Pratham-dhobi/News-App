@@ -9,6 +9,7 @@ import {
   Route,
   Routes
 } from 'react-router-dom'
+import Footer from './components/Footer';
 
 export default class App extends Component {
   
@@ -115,6 +116,7 @@ export default class App extends Component {
 
           </Router>
           
+          <Footer/>
       </>
     )
   }
